@@ -1,5 +1,5 @@
 ## Live Demo
-See the live demo here: https://evandaley.github.io/ThreeJsExperiment/
+See the live demo here: https://evandaley.github.io/js-sandbox/
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).

@@ -26,7 +26,7 @@ import { SaveManager } from './systems/SaveManager.js';
 
 let camera, renderer, scene, loop, controls, ground, container, resizer;
 
-document.devMode = false;
+document.devMode = true;
 
 class World {
   constructor(targetElement) {
