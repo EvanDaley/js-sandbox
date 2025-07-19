@@ -12,71 +12,71 @@
 </div>
 
 
-<div id="funds-display" class="hud-box">
-<!--    <span class="hud-label"></span>-->
-    <span class="hud-funds" id="funds-value">0</span>
-</div>
+<!--<div id="funds-display" class="hud-box">-->
+<!--&lt;!&ndash;    <span class="hud-label"></span>&ndash;&gt;-->
+<!--    <span class="hud-funds" id="funds-value">0</span>-->
+<!--</div>-->
 
 
-<div id="score-display" class="hud-box"">
-    <span class="hud-label">Filed Filings:</span>
-    <span class="hud-value" id="score-value">0</span>
-</div>
+<!--<div id="score-display" class="hud-box"">-->
+<!--    <span class="hud-label">Filed Filings:</span>-->
+<!--    <span class="hud-value" id="score-value">0</span>-->
+<!--</div>-->
 
-<div id="start-modal" class="start-modal">
-    <div class="start-modal-content">
-        <h1 class="start-title">🧾 Help Pro-Filer Complete This Year's Filings</h1>
-        <p class="start-subtitle">Enter your name to begin</p>
-        <input type="text" id="player-name" class="start-input" placeholder="Your name..." />
-        <button id="start-button" class="start-button">Let’s Go!</button>
-    </div>
-</div>
+<!--<div id="start-modal" class="start-modal" style="display: none">-->
+<!--    <div class="start-modal-content">-->
+<!--        <h1 class="start-title">🧾 Help Pro-Filer Complete This Year's Filings</h1>-->
+<!--        <p class="start-subtitle">Enter your name to begin</p>-->
+<!--        <input type="text" id="player-name" class="start-input" placeholder="Your name..." />-->
+<!--        <button id="start-button" class="start-button">Let’s Go!</button>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div id="upgrade-modal" class="modal">
-    <div class="modal-content">
-        <h2 class="modal-title">🛠️ Upgrades</h2>
-        <div class="upgrade-list">
-            <div class="upgrade-card">
-                <div class="upgrade-level">Lv 3</div>
-                <div class="upgrade-icon">⚡</div>
-                <div class="upgrade-info">
-                    <div class="upgrade-title">Scale Infra (Arms +1)</div>
-                    <button class="upgrade-cta">Upgrade – $100</button>
-                </div>
-            </div>
-            <div class="upgrade-card">
-                <div class="upgrade-level">Lv 1</div>
-                <div class="upgrade-icon">📈</div>
-                <div class="upgrade-info">
-                    <div class="upgrade-title">Boost CPU (Arm Speed +1)</div>
-                    <button class="upgrade-cta">Upgrade – $10</button>
-                </div>
-            </div>
-            <div class="upgrade-card">
-                <div class="upgrade-level">Lv 2</div>
-                <div class="upgrade-icon">💼</div>
-                <div class="upgrade-info">
-                    <div class="upgrade-title">Add Threads (+1 Filing Per Move)</div>
-                    <button class="upgrade-cta">Upgrade – $50</button>
-                </div>
-            </div>
-        </div>
-        <button id="close-upgrade-modal" class="close-button">Close</button>
-    </div>
-</div>
+<!--<div id="upgrade-modal" class="modal">-->
+<!--    <div class="modal-content">-->
+<!--        <h2 class="modal-title">🛠️ Upgrades</h2>-->
+<!--        <div class="upgrade-list">-->
+<!--            <div class="upgrade-card">-->
+<!--                <div class="upgrade-level">Lv 3</div>-->
+<!--                <div class="upgrade-icon">⚡</div>-->
+<!--                <div class="upgrade-info">-->
+<!--                    <div class="upgrade-title">Scale Infra (Arms +1)</div>-->
+<!--                    <button class="upgrade-cta">Upgrade – $100</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="upgrade-card">-->
+<!--                <div class="upgrade-level">Lv 1</div>-->
+<!--                <div class="upgrade-icon">📈</div>-->
+<!--                <div class="upgrade-info">-->
+<!--                    <div class="upgrade-title">Boost CPU (Arm Speed +1)</div>-->
+<!--                    <button class="upgrade-cta">Upgrade – $10</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="upgrade-card">-->
+<!--                <div class="upgrade-level">Lv 2</div>-->
+<!--                <div class="upgrade-icon">💼</div>-->
+<!--                <div class="upgrade-info">-->
+<!--                    <div class="upgrade-title">Add Threads (+1 Filing Per Move)</div>-->
+<!--                    <button class="upgrade-cta">Upgrade – $50</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <button id="close-upgrade-modal" class="close-button">Close</button>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div id="upgrade-popup" class="upgrade-popup hidden"></div>
+<!--<div id="upgrade-popup" class="upgrade-popup hidden"></div>-->
 
 <div id="webgl-scene-container"></div>
 </body>
 </html>
 
 <script>
-    document.getElementById('close-upgrade-modal')?.addEventListener('click', () => {
-        const modal = document.getElementById('upgrade-modal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    });
+    // document.getElementById('close-upgrade-modal')?.addEventListener('click', () => {
+    //     const modal = document.getElementById('upgrade-modal');
+    //     if (modal) {
+    //         modal.style.display = 'none';
+    //     }
+    // });
 </script>
-  
+

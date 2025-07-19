@@ -14,6 +14,8 @@ import { loadGround } from './components/ground/ground.js';
 // import { loadBackWall } from './components/backWall/ground.js';
 import { createBackgroundParticles } from './components/particles';
 
+import { loadCube } from './components/cube.js'
+
 import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
@@ -78,11 +80,11 @@ class World {
   setupGameLoop() {
     gameState.autoIncrementUpdater = {
       tick: (delta) => {
-        gameState.autoIncrementTimer += delta * 1000;
-        if (gameState.autoIncrementTimer >= gameState.autoIncrementFrequency) {
-          gameState.autoIncrementTimer = 0;
-          this.incrementProgress();
-        }
+        // gameState.autoIncrementTimer += delta * 1000;
+        // if (gameState.autoIncrementTimer >= gameState.autoIncrementFrequency) {
+        //   gameState.autoIncrementTimer = 0;
+        //   this.incrementProgress();
+        // }
       },
     };
 
@@ -108,79 +110,24 @@ class World {
 
     const assets = await this.loadAssets();
 
+    console.log(assets.ground)
+    console.log(assets.cube)
 
-    this.upgradeManager = new UpgradeManager({
-      gameState,
-      arms: assets.arms,
-    });
+    scene.add(assets.ground, assets.cube);
 
-    SaveManager.load(gameState, this.upgradeManager);
-    // console.log('loaded')
-    // console.log(JSON.stringify(gameState))
-
-    // Refresh arm state after loading
-    assets.arms.updateArmVisibility(gameState.activeArms);
-    assets.arms.updateSpeed(gameState.armSpeed);
-
-    this.upgradeManager.renderUpgrades()
-
-    this.incrementProgress()
-
-    controls.target.copy(assets.robot.position);
-    loop.updatables.push(assets.robot, assets.computer, assets.arms);
-    scene.add(assets.robot, assets.computer, assets.arms, assets.ground);
     await loadHDRIEnvironment(renderer, scene);
 
     const loadingOverlay = document.getElementById('loading-overlay');
     if (loadingOverlay) loadingOverlay.style.display = 'none';
 
-    this.showStartModal();
-  }
-
-  showStartModal() {
-    const modal = document.getElementById('start-modal');
-    const input = document.getElementById('player-name');
-    const button = document.getElementById('start-button');
-    modal.style.display = 'flex';
-    input.focus();
-
-    console.log('name', gameState.playerName)
-
-    const skipStartScreen = gameState.playerName || document.devMode
-
-    if (skipStartScreen)
-    {
-      modal.style.display = 'none';
-      this.start(); // start game loop once name is set
-    } else {
-      button.addEventListener('click', () => {
-        const name = input.value.trim();
-        if (name) {
-          gameState.playerName = name;
-          modal.style.display = 'none';
-          this.start(); // start game loop once name is set
-        }
-      });
-    }
+    this.start()
   }
 
   async loadAssets() {
-    const { robot } = await loadBots();
-    this.robot = robot;
-
-    const { arms } = await loadArms({
-      activeArmCount: gameState.activeArms,
-      speed: gameState.armSpeed,
-      onSwingComplete: () => this.incrementProgress(),
-    });
-    arms.updateArmVisibility(gameState.activeArms);
-    arms.updateSpeed(gameState.armSpeed);
-
-    const { computer } = await loadComputer();
     const { ground } = await loadGround();
-    // const { backWall } = await loadBackWall();
+    const { cube } = await loadCube();
 
-    return { robot, arms, computer, ground };
+    return { ground, cube };
   }
 
   render() {
@@ -189,7 +136,7 @@ class World {
 
   start() {
     loop.start();
-    this.startTapHintLoop();
+    // this.startTapHintLoop();
   }
 
   stop() {
@@ -198,17 +145,17 @@ class World {
   }
 
   startTapHintLoop() {
-    if (this.tapHintStopped || gameState.score > 6) return;
-    this.createTapHint();
+    // if (this.tapHintStopped || gameState.score > 6) return;
+    // this.createTapHint();
 
-    this.tapHintInterval = setInterval(() => {
-      if (gameState.score < 6) {
-        this.createTapHint();
-      } else {
-        clearInterval(this.tapHintInterval);
-        this.tapHintStopped = true;
-      }
-    }, 2000);
+    // this.tapHintInterval = setInterval(() => {
+    //   if (gameState.score < 6) {
+    //     this.createTapHint();
+    //   } else {
+    //     clearInterval(this.tapHintInterval);
+    //     this.tapHintStopped = true;
+    //   }
+    // }, 2000);
   }
 
   onPointerDown(event) {
@@ -220,15 +167,15 @@ class World {
     const intersects = gameState.raycaster.intersectObjects(scene.children, true);
 
     for (const hit of intersects) {
-      if (hit.object.name.startsWith('2')) {
-        this.upgradeManager.showModal();
-        break;
-      }
-
-      if (hit.object.name.startsWith('1')) {
-        this.incrementProgress();
-        break;
-      }
+      // if (hit.object.name.startsWith('2')) {
+      //   this.upgradeManager.showModal();
+      //   break;
+      // }
+      //
+      // if (hit.object.name.startsWith('1')) {
+      //   this.incrementProgress();
+      //   break;
+      // }
     }
   }
 

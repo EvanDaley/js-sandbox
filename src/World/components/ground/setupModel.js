@@ -23,27 +23,6 @@ function setupModel(data) {
 
     for (const mesh of meshes) {
         mesh.geometry = mesh.geometry.clone();
-        // applyVertexColorsToGeometry(mesh.geometry);
-        //
-        // const phongMaterial = new MeshPhongMaterial({
-        //     color: 0xffffff,
-        //     flatShading: true,
-        //     vertexColors: true,
-        //     shininess: 0,
-        // });
-        //
-        // mesh.material = phongMaterial;
-
-        // Optional: wireframe overlay (added *after* traversal)
-        // const wireframe = new Mesh(
-        //     mesh.geometry,
-        //     new MeshBasicMaterial({
-        //         color: 0x000000,
-        //         wireframe: true,
-        //         transparent: true,
-        //     })
-        // );
-        // mesh.add(wireframe);
     }
 
     const root = data.scene;
